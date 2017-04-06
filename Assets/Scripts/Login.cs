@@ -31,7 +31,7 @@ public class Login : MonoBehaviour
 		form.AddField ("nickName" , inputNickName.text);
 		form.AddField ("senha" , senha);
 
-		WWW retorno = new WWW ("http://mygameunity.esy.es/teste/UnityMySQL.php", form);
+		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
 		yield return retorno;
 

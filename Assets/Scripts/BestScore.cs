@@ -10,7 +10,7 @@ public class BestScore : MonoBehaviour
 
 	public float bestScore;
 	public float record;
-	public Text TextoRetorno;
+	//public Text TextoRetorno;
 	public Text UIText;
 	// Use this for initialization
 	void Start ()
@@ -38,13 +38,13 @@ public class BestScore : MonoBehaviour
 		form.AddField ("senha", PlayerPrefs.GetString ("senhaPF"));
 		form.AddField ("bestscorePlayer" , bestScore.ToString());
 
-		WWW retorno = new WWW ("http://mygameunity.esy.es/teste/UnityMySQL.php", form);
+		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
 		yield return retorno;
 
 		if (retorno.error == null) {
 			string r = retorno.text;
-			TextoRetorno.text = r;
+			//TextoRetorno.text = r;
 			Debug.Log (r);
 		}else{
 			Debug.Log("error "+retorno.error);
