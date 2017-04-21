@@ -38,7 +38,7 @@ public class BestScore : MonoBehaviour
 		form.AddField ("senha", PlayerPrefs.GetString ("senhaPF"));
 		form.AddField ("bestscorePlayer" , bestScore.ToString());
 
-		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
+		WWW retorno = new WWW ("http://matheussilvabd.esy.es/FleeBall/UnityMySQL.php", form);
 
 		yield return retorno;
 
