@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
 	private bool isDown;
 	public float offset;
 
+	public float limiteXUp;
+	public float limiteXDown;
+
+	public float limiteYUp;
+	public float limiteYDown;
+
 	void Start () 
 	{
 		isDown = false;
@@ -22,21 +28,21 @@ public class PlayerMovement : MonoBehaviour
 		{
 			transform.position = Vector2.Lerp(transform.position, Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y + offset)), moveSpeed);
 		}
-		if(transform.position.x > 3.52f) 
+		if(transform.position.x > limiteXUp) 
 		{
-			transform.position = new Vector3(3.52f, transform.position.y, 0);
+			transform.position = new Vector3(limiteXUp, transform.position.y, 0);
 		}
-		if(transform.position.x < -3.52f) 
+		if(transform.position.x < limiteXDown) 
 		{
-			transform.position = new Vector3(-3.52f, transform.position.y, 0);
+			transform.position = new Vector3(limiteXDown, transform.position.y, 0);
 		}
-		if(transform.position.y > 4.61f)
+		if(transform.position.y > limiteYUp)
 		{
-			transform.position = new Vector3(transform.position.x, 4.61f, 0);
+			transform.position = new Vector3(transform.position.x, limiteYUp, 0);
 		}
-		if(transform.position.y < -4.61f)
+		if(transform.position.y < limiteYDown)
 		{
-			transform.position = new Vector3(transform.position.x, -4.61f, 0);
+			transform.position = new Vector3(transform.position.x, limiteYDown, 0);
 		}
 	}
 
