@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/menu.unity
     guid: c60fc909768feda4f83d8924847c92a3
+  - enabled: 1
+    path: Assets/scenes/Cenarios/Voley.unity
+    guid: d18fb8f4247924949aa589b000375849

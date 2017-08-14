@@ -9,8 +9,8 @@ public class Pause : MonoBehaviour
 	public GameObject time;
 
 	public Button pause;
-	public Button resume;
-	public Button restart;
+	public Button Restart;
+	public Button Replay;
 	//public Button exit;
 
 	// Use this for initialization
@@ -19,11 +19,11 @@ public class Pause : MonoBehaviour
 		Button btn = pause.GetComponent<Button> ();
 		pause.onClick.AddListener (PauseClick);
 
-		Button rsm = resume.GetComponent<Button> ();
-		resume.onClick.AddListener (ResumeClick);
+		Button rsm = Restart.GetComponent<Button> ();
+		Restart.onClick.AddListener (ResumeClick);
 
-		Button rst = restart.GetComponent<Button> ();
-		restart.onClick.AddListener (RestartGame);
+		Button rst = Replay.GetComponent<Button> ();
+		Replay.onClick.AddListener (RestartGame);
 
 		//Button ext = exit.GetComponent<Button> ();
 		//exit.onClick.AddListener (ExitGame);
