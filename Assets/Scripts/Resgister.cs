@@ -31,7 +31,7 @@ public class Resgister : MonoBehaviour
 		form.AddField ("nickName" , inputNickName.text);
 		form.AddField ("senha" , senha);
 
-		WWW retorno = new WWW ("http://matheussilvabd.esy.es/FleeBall/UnityMySQL.php", form);
+		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
 		yield return retorno;
 

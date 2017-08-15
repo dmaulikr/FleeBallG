@@ -29,7 +29,7 @@ public class stats : MonoBehaviour
 		form.AddField ("nickName", PlayerPrefs.GetString ("nicknamePF"));
 		form.AddField ("senha", PlayerPrefs.GetString ("senhaPF"));
 
-		WWW retorno = new WWW ("http://matheussilvabd.esy.es/FleeBall/UnityMySQL.php", form);
+		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
 		yield return retorno;
 
