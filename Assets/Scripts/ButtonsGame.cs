@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class ButtonsGame : MonoBehaviour 
 {
@@ -22,5 +23,9 @@ public class ButtonsGame : MonoBehaviour
 	void TaskOnClick ()
 	{
 		Application.LoadLevel (scene);
+	}
+	void random()
+	{
+
 	}
 }

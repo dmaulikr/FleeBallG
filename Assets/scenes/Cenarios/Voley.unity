@@ -2306,7 +2306,7 @@ GameObject:
   - component: {fileID: 1586830023}
   - component: {fileID: 1586830022}
   m_Layer: 0
-  m_Name: Voley
+  m_Name: QuadraVoley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
