@@ -1033,7 +1033,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 785142052}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d75f0b433b6489e96735a528569a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: gameover
+  scene: GameOve
   UIText: {fileID: 733703952}
 --- !u!1 &786317534
 GameObject:

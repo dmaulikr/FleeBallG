@@ -5,15 +5,12 @@ using System.Collections.Generic;
 
 public class ButtonsGame : MonoBehaviour 
 {
-	//public string scene;
-	public Button buttonsGame;
 	public int sceneRandom;
 
 	// Use this for initialization
 	void Start () 
 	{
-		Button btn = buttonsGame.GetComponent<Button> ();
-		buttonsGame.onClick.AddListener (TaskOnClick);
+		
 	}
 
 	// Update is called once per frame
@@ -21,11 +18,6 @@ public class ButtonsGame : MonoBehaviour
 	{
 		
 	}
-	void TaskOnClick ()
-	{
-		//Application.LoadLevel (scene);
-	}
-
 	public void startGame()
 	{
 		Application.LoadLevel ("menuSelect");
@@ -54,6 +46,18 @@ public class ButtonsGame : MonoBehaviour
 	public void Voley()
 	{
 		Application.LoadLevel ("Voley");
+	}
+	public void replay()
+	{
+		Application.LoadLevel ("menuSelect");
+	}
+	public void ranking()
+	{
+		Application.LoadLevel ("ranking");
+	}
+	public void menu()
+	{
+		Application.LoadLevel ("menu");
 	}
 
 	public void random()
