@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/scenes/menuSelect.unity
     guid: 079d7dd25a85fbe42901ed1c8ee1fa0b
   - enabled: 1
+    path: Assets/scenes/ranking.unity
+    guid: 2aeb17ffa5ea935449007701741b9928
+  - enabled: 1
     path: Assets/scenes/Cenarios/Basket.unity
     guid: 47b9ca74665756846bc879f24b157edb
   - enabled: 1
@@ -36,5 +39,5 @@ EditorBuildSettings:
     path: Assets/scenes/Cenarios/Voley.unity
     guid: d18fb8f4247924949aa589b000375849
   - enabled: 1
-    path: Assets/scenes/GameOver.unity
+    path: Assets/scenes/gameover.unity
     guid: 79295f763bbf3c546a915afd4c89ad2a

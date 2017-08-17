@@ -157,7 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c49892fc5225142a3ddf91c255a216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonsGame: {fileID: 70457045}
   sceneRandom: 0
 --- !u!114 &70457045
 MonoBehaviour:
@@ -417,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c49892fc5225142a3ddf91c255a216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonsGame: {fileID: 593131412}
   sceneRandom: 0
 --- !u!114 &593131412
 MonoBehaviour:
@@ -457,7 +455,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 593131409}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 593131411}
+        m_MethodName: ranking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &663456611
@@ -908,7 +917,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c49892fc5225142a3ddf91c255a216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonsGame: {fileID: 1553543956}
   sceneRandom: 0
 --- !u!114 &1553543956
 MonoBehaviour:
@@ -948,7 +956,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1553543953}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1553543955}
+        m_MethodName: exit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1590646129
@@ -1353,5 +1372,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c49892fc5225142a3ddf91c255a216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonsGame: {fileID: 2139312442}
   sceneRandom: 0

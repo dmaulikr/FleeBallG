@@ -6,36 +6,28 @@ using UnityEngine.UI;
 public class ButtonBackNext : MonoBehaviour 
 {
 	private int pag;
+
 	public GameObject Ranking1;
 	public GameObject Ranking2;
 	public GameObject Ranking3;
 	public GameObject Ranking4;
 	public GameObject Ranking5;
 
-	public Button buttonNext;
-	public Button buttonBack;
+	public GameObject ButtonBack;
+	public GameObject ButtonMenu;
+
+//	public Button buttonNext;
+	//public Button buttonBack;
 
 	// Use this for initialization
 	void Start ()
 	{
-		Button btn = buttonNext.GetComponent<Button> ();
-		btn.onClick.AddListener (TaskOnClickNext);
-
-		Button btn2 = buttonBack.GetComponent<Button>(); 
-		btn.onClick.AddListener (TaskOnClickBack);
-
 		pag = 1;
-
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
-	}
-	void TaskOnClickNext ()
-	{
-		pag += 1;
 		if (pag == 1) 
 		{
 			pag1 ();
@@ -60,30 +52,28 @@ public class ButtonBackNext : MonoBehaviour
 		{
 			pag = 5;
 		}
+		if (pag == 1) {
+			ButtonBack.gameObject.active = false;
+			ButtonMenu.gameObject.active = true;
+		} else {
+			ButtonBack.gameObject.active = true;
+			ButtonMenu.gameObject.active = false;
+		}
+
 	}
-	void TaskOnClickBack ()
+	public void ClickNext ()
+	{
+		pag += 1;
+	}
+	public void ClickBack ()
 	{
 		pag -= 1;
-		if (pag == 1) {
-			pag1 ();
-		}
-		if (pag == 2) {
-			pag2 ();
-		}
-		if (pag == 3) {
-			pag3 ();
-		}
-		if (pag == 4) {
-			pag4 ();
-		}
-		if (pag == 5) {
-			pag5 ();
-		}
-		if (pag == 1) 
-		{
-			pag = 1;
-		}
 	}
+	public void ClickButtonMenu ()
+	{
+		Application.LoadLevel ("menu");
+	}
+
 
 	public void pag1 ()
 	{

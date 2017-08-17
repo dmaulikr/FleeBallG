@@ -60,6 +60,10 @@ public class ButtonsGame : MonoBehaviour
 	{
 		Application.LoadLevel ("menu");
 	}
+	public void exit()
+	{
+		Application.LoadLevel ("login");
+	}
 
 	public void random()
 	{
