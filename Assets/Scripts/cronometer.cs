@@ -17,14 +17,15 @@ public class cronometer : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		PlayerPrefs.SetFloat ("record", record);
+		//PlayerPrefs.GetFloat ("record", record);
 		StartTime = false;
 	}
 		
 	// Update is called once per frame
 	void Update () 
 	{
-		if (StartTime == true) {
+		if (StartTime == true) 
+		{
 			time += Time.deltaTime;
 		}
 		if(time - TempoInteiro > 1)
@@ -36,12 +37,14 @@ public class cronometer : MonoBehaviour
 	}
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		Application.LoadLevel ("gameover");
 		PlayerPrefs.SetFloat ("Score", time);
 		if (time > record) 
 		{
 			record = time;
-			PlayerPrefs.SetFloat ("bestScore", record);
+
 		}
+		PlayerPrefs.SetFloat ("bestScore", record);
+		PlayerPrefs.SetFloat ("Score", time);
+		Application.LoadLevel ("gameover");
 	}
 }

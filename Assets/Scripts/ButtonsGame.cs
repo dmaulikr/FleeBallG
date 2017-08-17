@@ -18,6 +18,7 @@ public class ButtonsGame : MonoBehaviour
 	{
 		
 	}
+
 	public void startGame()
 	{
 		Application.LoadLevel ("menuSelect");

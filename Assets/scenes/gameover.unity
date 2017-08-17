@@ -1111,6 +1111,7 @@ GameObject:
   - component: {fileID: 1558634634}
   - component: {fileID: 1558634636}
   - component: {fileID: 1558634635}
+  - component: {fileID: 1558634637}
   m_Layer: 5
   m_Name: BestScoreText
   m_TagString: Untagged
@@ -1169,6 +1170,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1558634633}
+--- !u!114 &1558634637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558634633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbec457f69d94248be7fc9e0b09d655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestScore: 0
+  record: 0
+  UIText: {fileID: 1079812001}
 --- !u!1 &1631850269 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1146140137634608, guid: 05b06ba9695b7d64fb97020fd5807cbb,

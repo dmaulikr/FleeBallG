@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class stats : MonoBehaviour 
 {
-	//public Text[] rankText;
-	//public Text namePlayer;
-	//public Text Record;
-	public Text BestScoreStats;
+	public Text[] rankText;
+	private string[] rankSplit;
 
 	// Use this for initialization
 	void Start ()
 	{
 		StartCoroutine (pegastats ());
+		StartCoroutine (pegaRank ());
 	}
 	
 	// Update is called once per frame
@@ -35,10 +34,33 @@ public class stats : MonoBehaviour
 
 		if (retorno.error == null) {
 			string r = retorno.text;
-			BestScoreStats.text = r;
-			Debug.Log (r);
+			//Debug.Log (r);
 		} else {
 			Debug.Log ("error " + retorno.error);
 		}
 	}
+	IEnumerator pegaRank()
+	{
+		WWWForm form = new WWWForm ();
+
+		form.AddField ("action", "pegaRank");
+
+
+		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
+
+		yield return retorno;
+
+		if (retorno.error == null) {
+			string r = retorno.text;
+			//Debug.Log (r);
+			rankSplit = r.Split ('|');
+
+			for (int i = 0; i < 50; i++) {
+				rankText[i].text = rankSplit [i];
+			}
+		} else {
+			Debug.Log ("error " + retorno.error);
+		}
+	}
+
 }
