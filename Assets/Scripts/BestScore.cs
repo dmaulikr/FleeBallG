@@ -34,7 +34,7 @@ public class BestScore : MonoBehaviour
 		WWWForm form = new WWWForm ();
 
 		form.AddField ("action" , "BestScore");
-		form.AddField ("nickName", PlayerPrefs.GetString ("nicknamePF"));
+		form.AddField ("email", PlayerPrefs.GetString ("emailPF"));
 		form.AddField ("senha", PlayerPrefs.GetString ("senhaPF"));
 		form.AddField ("bestscorePlayer" , bestScore.ToString());
 

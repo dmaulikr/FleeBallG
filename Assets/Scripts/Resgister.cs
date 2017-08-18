@@ -9,6 +9,7 @@ public class Resgister : MonoBehaviour
 	Gerenciador manager;
 
 	public Text TextoRetorno;
+	public InputField inputEmail;
 	public InputField inputNickName;
 	public InputField inputPassword;
 	public string senhaMD5;
@@ -28,6 +29,7 @@ public class Resgister : MonoBehaviour
 		WWWForm form = new WWWForm ();
 
 		form.AddField ("action" , "register");
+		form.AddField ("Email", inputEmail.text);
 		form.AddField ("nickName" , inputNickName.text);
 		form.AddField ("senha" , senha);
 

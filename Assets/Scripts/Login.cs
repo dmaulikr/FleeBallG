@@ -9,7 +9,7 @@ public class Login : MonoBehaviour
 	Gerenciador manager;
 
 	public Text TextoRetorno;
-	public InputField inputNickName;
+	public InputField inputEmail;
 	public InputField inputPassword;
 	public string senhaMD5;
 
@@ -28,7 +28,7 @@ public class Login : MonoBehaviour
 		WWWForm form = new WWWForm ();
 
 		form.AddField ("action" , "login");
-		form.AddField ("nickName" , inputNickName.text);
+		form.AddField ("Email" , inputEmail.text);
 		form.AddField ("senha" , senha);
 
 		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
@@ -42,11 +42,10 @@ public class Login : MonoBehaviour
 
 			if (r == "LOGGED") 
 			{
-				PlayerPrefs.SetString ("nicknamePF", inputNickName.text);
+				PlayerPrefs.SetString ("emailPF", inputEmail.text);
 				PlayerPrefs.SetString ("senhaPF", senha);
 
 				manager.logged ();
-
 			}
 		}else{
 			Debug.Log("error "+retorno.error);
