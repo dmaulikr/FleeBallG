@@ -11,13 +11,13 @@ public class Score : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{	
-		cronometer.time = 0;
+		
 	}	
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		score = PlayerPrefs.GetFloat("Score");
+		score = PlayerPrefs.GetFloat ("Score");
 		UIText.text = score.ToString("0");
 	}
 }

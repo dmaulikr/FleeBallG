@@ -6,11 +6,12 @@ using System.Collections.Generic;
 public class ButtonsGame : MonoBehaviour 
 {
 	public int sceneRandom;
+	public static Login instance;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
+
 	}
 
 	// Update is called once per frame
@@ -63,6 +64,10 @@ public class ButtonsGame : MonoBehaviour
 	public void exit()
 	{
 		Application.LoadLevel ("login");
+		PlayerPrefs.SetString ("emailPF", null);
+		PlayerPrefs.SetString ("senhaPF", null);
+
+		Login.Logar = false;
 	}
 
 	public void random()

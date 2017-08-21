@@ -11,11 +11,27 @@ public class Login : MonoBehaviour
 	public Text TextoRetorno;
 	public InputField inputEmail;
 	public InputField inputPassword;
+	public Toggle SaveLogin;
+
 	public string senhaMD5;
+	public string  nicknameR;
+
+	public static bool Logar = false;
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
+		Debug.Log (PlayerPrefs.GetString ("emailPF"));
+		Debug.Log (PlayerPrefs.GetString ("senhaPF"));
+
+		if (PlayerPrefs.GetString ("emailPF") == null && PlayerPrefs.GetString ("senhaPF") == null)
+		{
+			Debug.Log ("Acontece nada");
+		} else {
+			inputEmail.text = PlayerPrefs.GetString ("emailPF");
+			inputPassword.text = PlayerPrefs.GetString ("senhaPF");
+		}
+
 		manager = this.gameObject.GetComponent<Gerenciador> ();
 	}
 	public void LogarUsuario ()
@@ -40,17 +56,42 @@ public class Login : MonoBehaviour
 			TextoRetorno.text = r;
 			Debug.Log (r);
 
+			StartCoroutine (EmailUsuario());
+
+			if (SaveLogin.isOn == true) {
+				PlayerPrefs.SetString ("emailPF", inputEmail.text);
+				PlayerPrefs.SetString ("senhaPF", inputPassword.text);
+			} else{
+				Debug.Log ("Não salva nada");
+			}
+				
 			if (r == "LOGGED") 
 			{
-				PlayerPrefs.SetString ("emailPF", inputEmail.text);
-				PlayerPrefs.SetString ("senhaPF", senha);
-
 				manager.logged ();
 			}
 		}else{
 			Debug.Log("error "+retorno.error);
 		}
 	}
+	IEnumerator EmailUsuario()
+	{
+		WWWForm form = new WWWForm ();
+
+		form.AddField ("action", "profileEmail");
+		form.AddField ("email", inputEmail.text);
+
+		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
+
+		yield return retorno;
+
+		if (retorno.error == null) {
+			string r = retorno.text;
+			Debug.Log (r);
+		} else {
+			Debug.Log ("error " + retorno.error);
+		}
+	}
+
 	public void EncryptMd5(string input)
 	{
 		System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create ();

@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
-public class stats : MonoBehaviour 
+public class profile : MonoBehaviour 
 {
-	public Text[] rankText;
-	private string[] rankSplit;
+	public Text NickName;
+	public Text Email;
 
-	public static Login instance;
-	public Text BestScore;
 
 	// Use this for initialization
-	void Start ()
+	void Start () 
 	{
-		StartCoroutine (BestScoreUsuario ());
+		StartCoroutine (NickUsuario());
 	}
-
+	
 	// Update is called once per frame
-	IEnumerator BestScoreUsuario()
+	void Update () 
+	{
+		Email.text = PlayerPrefs.GetString ("emailPF");
+
+	}
+	IEnumerator NickUsuario()
 	{
 		WWWForm form = new WWWForm ();
 
-		form.AddField ("action", "PegaStats");
+		form.AddField ("action", "profileNickname");
 		form.AddField ("email", PlayerPrefs.GetString("emailPF"));
 
 		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
@@ -32,7 +36,7 @@ public class stats : MonoBehaviour
 		if (retorno.error == null) {
 			string r = retorno.text;
 			Debug.Log (r);
-			BestScore.text = r;
+			NickName.text = r;
 		} else {
 			Debug.Log ("error " + retorno.error);
 		}

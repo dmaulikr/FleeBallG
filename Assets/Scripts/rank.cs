@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class stats : MonoBehaviour 
+public class rank : MonoBehaviour 
 {
+
 	public Text[] rankText;
 	private string[] rankSplit;
 
-	public static Login instance;
-	public Text BestScore;
-
 	// Use this for initialization
-	void Start ()
+	void Start () 
 	{
-		StartCoroutine (BestScoreUsuario ());
+		StartCoroutine (pegaRank ());
 	}
-
+	
 	// Update is called once per frame
-	IEnumerator BestScoreUsuario()
+
+	IEnumerator pegaRank()
 	{
 		WWWForm form = new WWWForm ();
 
-		form.AddField ("action", "PegaStats");
-		form.AddField ("email", PlayerPrefs.GetString("emailPF"));
+		form.AddField ("action", "pegaRank");
 
 		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
@@ -31,8 +29,12 @@ public class stats : MonoBehaviour
 
 		if (retorno.error == null) {
 			string r = retorno.text;
-			Debug.Log (r);
-			BestScore.text = r;
+			//Debug.Log (r);
+			rankSplit = r.Split ('|');
+
+			for (int i = 0; i < 50; i++) {
+				rankText[i].text = rankSplit [i];
+			}
 		} else {
 			Debug.Log ("error " + retorno.error);
 		}

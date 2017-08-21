@@ -43,8 +43,8 @@ public class cronometer : MonoBehaviour
 			record = time;
 
 		}
-		PlayerPrefs.SetFloat ("bestScore", record);
-		PlayerPrefs.SetFloat ("Score", time);
+		//PlayerPrefs.SetFloat ("bestScore", record);
+		//PlayerPrefs.SetFloat ("Score", time);
 		Application.LoadLevel ("gameover");
 	}
 }

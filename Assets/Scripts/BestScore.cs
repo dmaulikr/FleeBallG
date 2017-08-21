@@ -10,8 +10,8 @@ public class BestScore : MonoBehaviour
 
 	public float bestScore;
 	public float record;
-	//public Text TextoRetorno;
-	public Text UIText;
+	//public Text bestScoreText;
+	public static Login instance;
 	// Use this for initialization
 	void Start ()
 	{
@@ -24,8 +24,7 @@ public class BestScore : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		bestScore = PlayerPrefs.GetFloat("bestScore");
-		UIText.text = bestScore.ToString("0");
+		//bestScore = PlayerPrefs.GetFloat("bestScore");
 
 		StartCoroutine (EnviarDados ());
 	}
@@ -34,9 +33,8 @@ public class BestScore : MonoBehaviour
 		WWWForm form = new WWWForm ();
 
 		form.AddField ("action" , "BestScore");
-		form.AddField ("email", PlayerPrefs.GetString ("emailPF"));
-		form.AddField ("senha", PlayerPrefs.GetString ("senhaPF"));
-		form.AddField ("bestscorePlayer" , bestScore.ToString());
+		form.AddField ("email", PlayerPrefs.GetString("emailPF"));
+		form.AddField ("bestscorePlayer" , cronometer.record.ToString());
 
 		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
@@ -44,8 +42,7 @@ public class BestScore : MonoBehaviour
 
 		if (retorno.error == null) {
 			string r = retorno.text;
-			//TextoRetorno.text = r;
-			Debug.Log (r);
+			//Debug.Log (r);
 		}else{
 			Debug.Log("error "+retorno.error);
 		}
