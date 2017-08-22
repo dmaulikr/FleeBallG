@@ -61,6 +61,10 @@ public class ButtonsGame : MonoBehaviour
 	{
 		Application.LoadLevel ("menu");
 	}
+	public void profile()
+	{
+		Application.LoadLevel ("profile");	
+	}
 	public void exit()
 	{
 		Application.LoadLevel ("login");

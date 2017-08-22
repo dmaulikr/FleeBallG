@@ -1108,10 +1108,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   offset: 10
-  limiteXUp: 3.47
-  limiteXDown: -3.47
-  limiteYUp: 4.71
-  limiteYDown: -4.71
+  limiteXUp: 2.36
+  limiteXDown: -2.36
+  limiteYUp: 4.6
+  limiteYDown: -4.6
 --- !u!114 &785142057
 MonoBehaviour:
   m_ObjectHideFlags: 0
