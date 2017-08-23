@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Remote.unity
+    path: 
     guid: 9e56f01ab4e9746a9ad3ad3f4b221d9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/scenes/login.unity
     guid: 81c3eda46284c0d4bb8830dc20366d77
   - enabled: 1
