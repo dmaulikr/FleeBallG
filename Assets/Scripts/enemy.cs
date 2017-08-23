@@ -18,6 +18,7 @@ public class enemy : MonoBehaviour
 
 	public bool StartTime;
 
+
 	public static cronometer instance;
 
 	// Use this for initialization
@@ -46,6 +47,7 @@ public class enemy : MonoBehaviour
 		{
 			transform.position = new Vector2(Way3.transform.position.x, Way3.transform.position.y);
 		}
+			
 	}
 	// Update is called once per frame
 	void Update ()

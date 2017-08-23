@@ -17,7 +17,6 @@ public class cronometer : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//PlayerPrefs.GetFloat ("record", record);
 		StartTime = false;
 	}
 		
@@ -43,8 +42,6 @@ public class cronometer : MonoBehaviour
 			record = time;
 
 		}
-		//PlayerPrefs.SetFloat ("bestScore", record);
-		//PlayerPrefs.SetFloat ("Score", time);
 		Application.LoadLevel ("gameover");
 	}
 }
