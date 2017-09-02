@@ -70,8 +70,6 @@ public class ButtonsGame : MonoBehaviour
 		Application.LoadLevel ("login");
 		PlayerPrefs.SetString ("emailPF", null);
 		PlayerPrefs.SetString ("senhaPF", null);
-
-		Login.Logar = false;
 	}
 
 	public void random()

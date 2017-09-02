@@ -9,29 +9,24 @@ public class Resgister : MonoBehaviour
 	Gerenciador manager;
 
 	public Text TextoRetorno;
-	public InputField inputEmail;
 	public InputField inputNickName;
-	public InputField inputPassword;
-	public string senhaMD5;
+	public GameObject panel;
+	private string typeAccount;
 
 	// Use this for initialization
 	void Start () 
 	{
+		typeAccount = "conventional";
 		manager = this.gameObject.GetComponent<Gerenciador> ();
 	}
-	public void enviarDados ()
-	{
-		EncryptMd5(inputPassword.text);
-	}
 
-	IEnumerator RegisterUser( string senha )
+	IEnumerator RegisterUser()
 	{
 		WWWForm form = new WWWForm ();
 
 		form.AddField ("action" , "register");
-		form.AddField ("Email", inputEmail.text);
 		form.AddField ("nickName" , inputNickName.text);
-		form.AddField ("senha" , senha);
+		form.AddField ("tipoConta", typeAccount);
 
 		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
 
@@ -41,19 +36,20 @@ public class Resgister : MonoBehaviour
 			string r = retorno.text;
 			TextoRetorno.text = r;
 			Debug.Log (r);
+
+			if (r == "User successfully registered!") 
+			{
+				PlayerPrefs.SetString ("nickNamePF", inputNickName.text);
+				manager.logged ();
+			}
+
 		}else{
 			Debug.Log("error "+retorno.error);
 		}
 	}
-	public void EncryptMd5(string input)
+	public void EnviarDados()
 	{
-		System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create ();
-		byte[] data = md5.ComputeHash (System.Text.Encoding.Default.GetBytes (input));
-		System.Text.StringBuilder sbString = new System.Text.StringBuilder ();
-		for (int i = 0; i < data.Length; i++)
-			sbString.Append (data [i].ToString ("x2"));
-		senhaMD5 = sbString.ToString ();
-		StartCoroutine (RegisterUser(senhaMD5));
+		StartCoroutine (RegisterUser ());
 	}
 }
 

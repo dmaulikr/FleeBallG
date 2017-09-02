@@ -12,15 +12,14 @@ public class Login : MonoBehaviour
 	public InputField inputEmail;
 	public InputField inputPassword;
 	public Toggle SaveLogin;
+	public GameObject panel;
 
 	public string senhaMD5;
-	public string  nicknameR;
-
-	public static bool Logar = false;
 
 	// Use this for initialization
 	void Start ()
 	{
+		panel.gameObject.SetActive (false);
 		Debug.Log (PlayerPrefs.GetString ("emailPF"));
 		Debug.Log (PlayerPrefs.GetString ("senhaPF"));
 
@@ -37,6 +36,7 @@ public class Login : MonoBehaviour
 	public void LogarUsuario ()
 	{
 		EncryptMd5(inputPassword.text);
+
 	}
 
 	IEnumerator LoginUsuario(string senha)
@@ -53,10 +53,15 @@ public class Login : MonoBehaviour
 
 		if (retorno.error == null) {
 			string r = retorno.text;
-			TextoRetorno.text = r;
 			Debug.Log (r);
 
 			StartCoroutine (EmailUsuario());
+
+			if (r == "The user is not registered!" || r == "Incorrect password. Please try again")
+			{
+				panel.gameObject.SetActive (true);
+				TextoRetorno.text = r;
+			}
 
 			if (SaveLogin.isOn == true) {
 				PlayerPrefs.SetString ("emailPF", inputEmail.text);

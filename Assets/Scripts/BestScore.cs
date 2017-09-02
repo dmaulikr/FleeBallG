@@ -10,22 +10,18 @@ public class BestScore : MonoBehaviour
 
 	public float bestScore;
 	public float record;
-	//public Text bestScoreText;
 	public static Login instance;
 	// Use this for initialization
 	void Start ()
 	{
 		manager = this.gameObject.GetComponent<Gerenciador> ();
 		StartCoroutine (EnviarDados ());
-		cronometer.time = 0;
-		//cronometer.TempoInteiro = 0;
+		cronometer.time = 0;	
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		//bestScore = PlayerPrefs.GetFloat("bestScore");
-
 		StartCoroutine (EnviarDados ());
 	}
 	IEnumerator EnviarDados()
@@ -33,7 +29,7 @@ public class BestScore : MonoBehaviour
 		WWWForm form = new WWWForm ();
 
 		form.AddField ("action" , "BestScore");
-		form.AddField ("email", PlayerPrefs.GetString("emailPF"));
+		form.AddField ("nickName", PlayerPrefs.GetString("nickNamePF"));
 		form.AddField ("bestscorePlayer" , cronometer.record.ToString());
 
 		WWW retorno = new WWW ("http://localhost/MICROCAMP/UnityMySQL.php", form);
